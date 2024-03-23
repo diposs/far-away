@@ -16,7 +16,8 @@ export async function POST(req: NextRequest): Promise<Response> {
     } catch {
         return new NextResponse(errorFrame);
     }
-    const {fid, isValid} = await parseFrameRequest(frameRequest);
+    const {isValid} = await parseFrameRequest(frameRequest);
+    const {fid} = frameRequest.untrustedData.fid;
     // if (!fid || !isValid) return new NextResponse(errorFrame);
     const inputText = frameRequest.untrustedData.inputText;
     const isValidEmail = frameRequest.untrustedData.inputText
