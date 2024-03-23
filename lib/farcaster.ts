@@ -3,7 +3,7 @@ import { createPublicClient, getContract, http } from "viem";
 import { optimism } from "viem/chains";
 import { getSSLHubRpcClient, Message } from '@farcaster/hub-nodejs';
 
-export const NEXT_PUBLIC_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+export const NEXT_PUBLIC_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL|| 'https://far-away-beta.vercel.app/';
 const ID_REGISTRY_CONTRACT_ADDRESS: `0x${string}` = '0x00000000fc6c5f01fc30151999387bb99a9f489b'; // Optimism Mainnet
 const ZERO_ADDRESS: `0x${string}` = '0x0000000000000000000000000000000000000000';
 const HUB_URL = 'nemes.farcaster.xyz:2283';
