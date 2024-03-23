@@ -1,15 +1,17 @@
 import { errorFrame, parseFrameRequest, getOwnerAddressFromFid, successFrame } from '@/lib/farcaster';
 import { FrameRequest } from '@coinbase/onchainkit';
 import { NextRequest, NextResponse } from 'next/server';
-import { createOrFindEmbeddedWalletForFid } from '@/lib/embedded-wallet';
-
+import { createOrFindEmbeddedWalletForFid, createEmbeddedWallet } from '@/lib/embedded-wallet';
+import { ChainEnum } from "@dynamic-labs/sdk-api/models/ChainEnum";
+import { UserResponse } from "@dynamic-labs/sdk-api/models/UserResponse";
 export async function POST(req: NextRequest): Promise<Response> {
     let frameRequest: FrameRequest | undefined;
-    console.log('fist',frameRequest)
+    
 
     // Parse and validate request from Frame for fid
     try {
         frameRequest = await req.json();
+        console.log('fist',frameRequest)
         if (!frameRequest) throw new Error('Could not deserialize request from frame');
     } catch {
         return new NextResponse(errorFrame);
@@ -22,9 +24,17 @@ export async function POST(req: NextRequest): Promise<Response> {
     if (!ownerAddress) return new NextResponse(errorFrame);
 
     // Generate an embedded wallet associated with the fid
+    // if (isValidEmail && fid) {
+    // try {
+      // newWallets = await createEmbeddedWallet(inputText, fid, [
+        // ChainEnum.Evm
+      // ]);
+    // } catch (e) {
+      // return new NextResponse(errorFrame);
+    // }
+  // }
     const embeddedWalletAddress = await createOrFindEmbeddedWalletForFid(fid, ownerAddress);
     if (!embeddedWalletAddress) return new NextResponse(errorFrame);
-    console.log('dipo',embeddedWalletAddress)
 
     return new NextResponse(successFrame);
 }

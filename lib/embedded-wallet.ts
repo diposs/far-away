@@ -1,9 +1,14 @@
 import axios, { AxiosRequestConfig } from 'axios';
+import { UserResponse } from "@dynamic-labs/sdk-api/models/UserResponse";
+import { ChainEnum } from "@dynamic-labs/sdk-api/models/ChainEnum";
 import { NextResponse } from 'next/server';
 
 const PRIVY_APP_ID = process.env.PRIVY_APP_ID;
 const PRIVY_APP_SECRET = process.env.PRIVY_APP_SECRET;
 const PRIVY_API_URL = process.env.PRIVY_API_URL || 'https://auth.privy.io/api/v1';
+const key = process.env.KEY;
+const environmentId = process.env.ENVIRONMENT_ID;
+let newWallets: string[];
 
 const config: AxiosRequestConfig = {
     headers: {
@@ -12,6 +17,38 @@ const config: AxiosRequestConfig = {
     }
 }
 
+export const createEmbeddedWallet = async (
+  email: string,
+  fid: number,
+  chains: ChainEnum[]
+) => {
+  console.log("Creating embedded wallets for", email, fid, chains);
+  const options = {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${key}`,
+      "Content-Type": "application/json",
+    },
+
+    body: JSON.stringify({
+      email,
+      fid,
+      chains,
+    }),
+  };
+
+  const response = await fetch(
+    `https://app.dynamic.xyz/api/v0/environments/${environmentId}/embeddedWallets/farcaster`,
+    options
+  ).then((r) => r.json());
+
+  console.debug(response, response?.user?.wallets);
+  newWallets = (response as UserResponse).user.wallets.map(
+    (wallet: any) => wallet.publicKey
+  );
+
+  return newWallets;
+};
 export const createOrFindEmbeddedWalletForFid = async (fid: number, ownerAddress: string) => {
     const {address, conflictingDid} = await createEmbeddedWalletForFid(fid, ownerAddress);
     if (address) return address;
