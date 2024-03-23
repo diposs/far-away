@@ -18,6 +18,7 @@ export async function POST(req: NextRequest): Promise<Response> {
     }
     const {fid, isValid} = await parseFrameRequest(frameRequest);
     if (!fid || !isValid) return new NextResponse(errorFrame);
+    const inputText = frameRequest.untrustedData.inputText;
     const isValidEmail = frameRequest.untrustedData.inputText
     ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputText)
     : false;
