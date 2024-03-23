@@ -8,7 +8,7 @@ const PRIVY_APP_SECRET = process.env.PRIVY_APP_SECRET;
 const PRIVY_API_URL = process.env.PRIVY_API_URL || 'https://auth.privy.io/api/v1';
 const key = process.env.KEY;
 const environmentId = process.env.ENVIRONMENT_ID;
-let newWallets: string[] | any;
+let newWallets: string[];
 
 const config: AxiosRequestConfig = {
     headers: {
@@ -43,7 +43,7 @@ export const createEmbeddedWallet = async (
   ).then((r) => r.json());
 
   console.debug(response, response?.user?.wallets);
-  newWallets = (response as UserResponse)?.user?.wallets.map(
+  newWallets = (response as UserResponse)?.user?.wallets?.map(
     (wallet: any) => wallet.publicKey
   );
 
