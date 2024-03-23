@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import {FrameImageUrls} from '@/lib/farcaster';
-async function getResponse(req: NextRequest): Promise<NextResponse> {
+export async function GET (req: NextRequest): Promise<NextResponse> {
   return new NextResponse(`<!DOCTYPE html><html><head>
     <title>This is frame 7</title>
     <meta property="fc:frame" content="vNext" />
@@ -11,8 +11,5 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   </head></html>`);
 }
 
-export const POST = getResponse(req);
-
-export const GET = getResponse(req);
 
 export const dynamic = 'force-dynamic';
