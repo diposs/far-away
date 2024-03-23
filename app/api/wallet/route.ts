@@ -6,7 +6,7 @@ import { ChainEnum } from "@dynamic-labs/sdk-api/models/ChainEnum";
 import { UserResponse } from "@dynamic-labs/sdk-api/models/UserResponse";
 export async function POST(req: NextRequest): Promise<Response> {
     let frameRequest: FrameRequest | undefined;
-    
+    let newWallets: any[] | undefined;
 
     // Parse and validate request from Frame for fid
     try {
