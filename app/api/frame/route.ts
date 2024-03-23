@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import {FrameImageUrls} from '@/lib/farcaster';
-export async function GET (req: NextRequest): Promise<NextResponse> {
+export async function POST(req: NextRequest): Promise<NextResponse> {
   return new NextResponse(`<!DOCTYPE html><html><head>
     <title>This is frame 7</title>
     <meta property="fc:frame" content="vNext" />
