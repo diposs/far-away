@@ -7,16 +7,16 @@ const frameMetadata = getFrameMetadata({
       label: "Begin"
     }
   ],
-  image: `${process.env.NEXT_PUBLIC_GATEWAY_URL}/ipfs/QmVApz4Co3JDcAFyg9aCtasfK7bgCXsM9UyeFhdo8xT7z4`,
+  image: `${process.env.NEXT_PUBLIC_GATEWAY_URL}/ipfs/Qme4FXhoxHHfyzTfRxSpASbMF8kajLEPkRQWhwWu9pkUjm/0.png`,
   post_url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/frame?id=1`,
 });
 
 export const metadata: Metadata = {
-  title: 'Cosmic Cowboys',
-  description: 'A frame telling the story of Cosmic Cowboys',
+  title: 'The MarketPLACE',
+  description: 'A frame exploring The MarketPLACE',
   openGraph: {
-    title: 'Cosmic Cowboys',
-    description: 'A frame telling the story of Cosmic Cowboys',
+    title: 'The MarketPLACE',
+    description: 'A frame exploring The MarketPLACE',
     images: [`${process.env.NEXT_PUBLIC_GATEWAY_URL}/ipfs/Qme4FXhoxHHfyzTfRxSpASbMF8kajLEPkRQWhwWu9pkUjm/0.png`],
   },
   other: {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <h1>Cosmic Cowboys</h1>
+      <h1>The MarketPLACE</h1>
     </>
   );
 }
