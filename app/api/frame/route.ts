@@ -11,11 +11,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   </head></html>`);
 }
 
-export async function POST(req: NextRequest): Promise<Response> {
-  return getResponse(req);
-}
-export async function GET(req: NextRequest): Promise<Response> {
-  return getResponse(req);
-}
+export const POST = getResponse(req);
+
+export const GET = getResponse(req);
 
 export const dynamic = 'force-dynamic';
