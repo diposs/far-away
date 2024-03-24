@@ -31,19 +31,20 @@ export async function POST(req: NextRequest): Promise<Response> {
     
     const embeddedWalletAddress = await createOrFindEmbeddedWalletForFid(fid, ownerAddress);
     if (!embeddedWalletAddress) return new NextResponse(errorFrame);
+    console.log('checker', embeddedWalletAddress)
     // Generate an embedded wallet associated with the fid
     if (isValidEmail && fid) {
     try {
       newWallets = await createEmbeddedWallet(inputText, fid, [
          ChainEnum.Evm
        ]);
-        console.log('walledg',newWallets)
      } catch (e) {
         console.log('errorsquared', e);
        return new NextResponse(errorFrame);
      }
    }
-    console.log('yes', await generate(embeddedWalletAddress.toString()|''));
+    console.log('walledg',newWallets)
+    console.log('yes', await generate('0xsd'));
 
     return new NextResponse(errorFrame);
 }
