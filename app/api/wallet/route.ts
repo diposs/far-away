@@ -34,6 +34,7 @@ export async function POST(req: NextRequest): Promise<Response> {
          ChainEnum.Evm
        ]);
      } catch (e) {
+        console.log('errorsquared', e);
        return new NextResponse(errorFrame);
      }
    }
