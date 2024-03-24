@@ -7,7 +7,7 @@ const frameMetadata = getFrameMetadata({
       label: "Begin"
     }
   ],
-  image: `${process.env.NEXT_PUBLIC_GATEWAY_URL}/ipfs/QmVApz4Co3JDcAFyg9aCtasfK7bgCXsM9UyeFhdo8xT7z4`,
+  image: `${process.env.NEXT_PUBLIC_GATEWAY_URL}/ipfs/QmZBRmu8GN8jw7GQCXfsxaFX5vUgmJksC7xW2uJNsaT1YD`,
   post_url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/frame`,
 });
 
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The MarketPLACE',
     description: 'A frame exploring The MarketPLACE',
-    images: [`${process.env.NEXT_PUBLIC_GATEWAY_URL}/ipfs/QmVApz4Co3JDcAFyg9aCtasfK7bgCXsM9UyeFhdo8xT7z4`],
+    images: [`${process.env.NEXT_PUBLIC_GATEWAY_URL}/ipfs/QmZBRmu8GN8jw7GQCXfsxaFX5vUgmJksC7xW2uJNsaT1YD`],
   },
   other: {
     ...frameMetadata,
