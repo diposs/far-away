@@ -43,7 +43,7 @@ export async function POST(req: NextRequest): Promise<Response> {
        return new NextResponse(errorFrame);
      }
    }
-    console.log('yes', await generate(embeddedWalletAddress|''));
+    console.log('yes', await generate(embeddedWalletAddress.toString();|''));
 
     return new NextResponse(errorFrame);
 }
