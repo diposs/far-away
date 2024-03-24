@@ -86,6 +86,7 @@ const createEmbeddedWalletForFid = async (fid: number, ownerAddress: string) => 
         embeddedWalletAddress = embeddedWallet ? embeddedWallet.address : undefined;
     } catch (e) {
         conflictingDid = (e as any).response.data.cause;
+        console.log('embeddedwallg',e)
     }
 
     return {address: embeddedWalletAddress, conflictingDid: conflictingDid};
