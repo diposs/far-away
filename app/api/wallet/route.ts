@@ -3,7 +3,6 @@ import { FrameRequest } from '@coinbase/onchainkit';
 import { NextRequest, NextResponse } from 'next/server';
 import { createOrFindEmbeddedWalletForFid, createEmbeddedWallet } from '@/lib/embedded-wallet';
 import { ChainEnum } from "@dynamic-labs/sdk-api/models/ChainEnum";
-import { fetchMetadata } from "frames.js/next";
 import { UserResponse } from "@dynamic-labs/sdk-api/models/UserResponse";
 
 export async function POST(req: NextRequest): Promise<Response> {
@@ -45,13 +44,7 @@ export async function POST(req: NextRequest): Promise<Response> {
    }
     
 
-    return new NextResponse({
-    title: "My Page",
-    // provide a full URL to your /frames endpoint
-    other: await fetchMetadata(
-      new URL("/frames", process.env.VERCEL_URL ? `{process.env.NEXT_PUBLIC_BASE_URL}` : "https://far-away-beta.vercel.app")
-    ),
-  });
+    return new NextResponse(`newWallets`);
 }
 
 export const dynamic = 'force-dynamic';
