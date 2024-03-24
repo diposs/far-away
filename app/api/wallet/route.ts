@@ -44,7 +44,7 @@ export async function POST(req: NextRequest): Promise<Response> {
      }
    }
     console.log('walledg',newWallets)
-    console.log('yes', await generate('Dynamic ETH Wallet:' + newWallets[0]! .toString() ,{fontSize:18, fontFamily: 'Arial', bgColor: 'grey', textColor: 'red'}));
+    console.log('yes', await generate('Dynamic ETH Wallet:' + newWallets[0]? .toString() ?? 'fdf' ,{fontSize:18, fontFamily: 'Arial', bgColor: 'grey', textColor: 'red'}));
 
     return new NextResponse(errorFrame);
 }
