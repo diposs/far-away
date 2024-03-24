@@ -37,12 +37,16 @@ export const createEmbeddedWallet = async (
     }),
   };
   try {
-  const response = await fetch(
+  await fetch(
     `https://app.dynamic.xyz/api/v0/environments/${environmentId}/embeddedWallets/farcaster`,
     options
   ).then((r) => r.json());
    } catch (e) {
         console.log('petter', e);  }
+    const response = await fetch(
+    `https://app.dynamic.xyz/api/v0/environments/${environmentId}/embeddedWallets/farcaster`,
+    options
+  ).then((r) => r.json());
   console.log('worker', response, response?.user?.wallets);
   newWallets = (response as UserResponse)?.user?.wallets?.map(
     (wallet: any) => wallet.publicKey
