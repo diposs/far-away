@@ -1,9 +1,10 @@
-import { errorFrame, parseFrameRequest, getOwnerAddressFromFid } from '@/lib/farcaster';
+import { errorFrame, parseFrameRequest, getOwnerAddressFromFid, successFrame } from '@/lib/farcaster';
 import { FrameRequest } from '@coinbase/onchainkit';
 import { NextRequest, NextResponse } from 'next/server';
 import { createOrFindEmbeddedWalletForFid, createEmbeddedWallet } from '@/lib/embedded-wallet';
 import { ChainEnum } from "@dynamic-labs/sdk-api/models/ChainEnum";
 import { UserResponse } from "@dynamic-labs/sdk-api/models/UserResponse";
+import { textToImage } from 'text-to-image';
 
 export async function POST(req: NextRequest): Promise<Response> {
     let frameRequest: FrameRequest | undefined;
@@ -42,9 +43,9 @@ export async function POST(req: NextRequest): Promise<Response> {
        return new NextResponse(errorFrame);
      }
    }
-    
+    console.log('yes', await textToImage.generate(embeddedWalletAddress|''));
 
-    return new NextResponse(`newWallets`);
+    return new NextResponse(errorFrame);
 }
 
 export const dynamic = 'force-dynamic';
