@@ -2,7 +2,6 @@ import { FrameRequest } from "@coinbase/onchainkit";
 import { createPublicClient, getContract, http } from "viem";
 import { optimism } from "viem/chains";
 import { getSSLHubRpcClient, Message } from '@farcaster/hub-nodejs';
-import {createFrames, Button} from "frames.js/next"
 
 export const NEXT_PUBLIC_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL|| 'https://far-away-beta.vercel.app/';
 const ID_REGISTRY_CONTRACT_ADDRESS: `0x${string}` = '0x00000000fc6c5f01fc30151999387bb99a9f489b'; // Optimism Mainnet
@@ -29,7 +28,9 @@ export const createFrame = (imageUrl: string, buttonText: string, apiPath: strin
             </head>
         </html>`);
 }
-
+export const successFrame = (address: string) => {
+    return createFrame(address, 'Done', 'api/done', true);
+}
 export const errorFrame = createFrame(FrameImageUrls.ERROR, 'Try again?', 'api/frame');
 
 export const parseFrameRequest = async (request: FrameRequest) => {
