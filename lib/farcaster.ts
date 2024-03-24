@@ -13,7 +13,7 @@ export enum FrameImageUrls {
     START = 'https://privy-frames-demo.vercel.app/landing.png',
     WALLET = 'https://privy-frames-demo.vercel.app/wallet.png',
     SUCCESS = 'https://privy-frames-demo.vercel.app/success.png',
-    ERROR = 'https://privy-frames-demo.vercel.app/error.png'
+    ERROR = 'https://white-live-termite-961.mypinata.cloud/ipfs/QmXRWMHFyvQ6P85j9KCkDXgrsskvWwcvvpj6aBLPytWkvk'
 }
 
 export const createFrame = (imageUrl: string, buttonText: string, apiPath: string, isRedirect = false) => {
