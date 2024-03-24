@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The MarketPLACE',
     description: 'A frame exploring The MarketPLACE',
-    images: [`${process.env.NEXT_PUBLIC_GATEWAY_URL}/ipfs/Qme4FXhoxHHfyzTfRxSpASbMF8kajLEPkRQWhwWu9pkUjm/0.png`],
+    images: [`${process.env.NEXT_PUBLIC_GATEWAY_URL}/ipfs/QmVApz4Co3JDcAFyg9aCtasfK7bgCXsM9UyeFhdo8xT7z4`],
   },
   other: {
     ...frameMetadata,
