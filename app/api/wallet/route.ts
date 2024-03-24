@@ -43,8 +43,8 @@ export async function POST(req: NextRequest): Promise<Response> {
        return new NextResponse(errorFrame);
      }
    }
-    const walletD:string = newWallets[0]!.toString() || 'lo';
-    const walletP:string = embeddedWalletAddress!.toString() || 'glop';
+    const walletD:string = String(newWallets[0]!) || 'lo';
+    const walletP:string = String(embeddedWalletAddress!) || 'glop';
     console.log('walledg',newWallets);
     console.log('yes', await generate('Dynamic ETH Wallet: ' + walletD + ' and Privy ETH Wallet: ' + walletP  ,{fontSize:18, fontFamily: 'Arial', bgColor: 'grey', textColor: 'red'}));
 
