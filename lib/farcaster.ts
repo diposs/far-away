@@ -30,8 +30,7 @@ export const createFrame = (imageUrl: string, buttonText: string, apiPath: strin
         </html>`);
 }
 
-
-export const successFrame = createFrame(FrameImageUrls.SUCCESS, 'Done', 'api/done', true);
+export const sframes = createFrames({basePath:'api/done'});
 export const errorFrame = createFrame(FrameImageUrls.ERROR, 'Try again?', 'api/frame');
 
 export const parseFrameRequest = async (request: FrameRequest) => {
