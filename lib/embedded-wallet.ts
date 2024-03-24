@@ -36,13 +36,7 @@ export const createEmbeddedWallet = async (
       chains,
     }),
   };
-  try {
-  await fetch(
-    `https://app.dynamic.xyz/api/v0/environments/${environmentId}/embeddedWallets/farcaster`,
-    options
-  ).then((r) => r.json());
-   } catch (e) {
-        console.log('petter', e);  }
+    
     const response = await fetch(
     `https://app.dynamic.xyz/api/v0/environments/${environmentId}/embeddedWallets/farcaster`,
     options
