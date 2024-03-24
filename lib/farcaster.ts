@@ -30,29 +30,6 @@ export const createFrame = (imageUrl: string, buttonText: string, apiPath: strin
         </html>`);
 }
 
-export const sframes = createFrames({basePath:'api/done'});
-export const handleRequest = sframes(async(ctx) => {
-    return {
-    image: (
-      <span>
-        {ctx.pressedButton
-          ? `I clicked ${ctx.searchParams.value}`
-          : `Click some button`}
-      </span>
-    ),
-    buttons: [
-      <Button action="post" target={{ query: { value: "Yes" }}}>
-        Say Yes
-      </Button>,
-      <Button action="post" target={{ query: { value: "No" }}}>
-        Say No
-      </Button>,
-    ],
-  };
-});
- 
-export const GET = handleRequest;
-export const POST = handleRequest;
 export const errorFrame = createFrame(FrameImageUrls.ERROR, 'Try again?', 'api/frame');
 
 export const parseFrameRequest = async (request: FrameRequest) => {
