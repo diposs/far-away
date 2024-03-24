@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createOrFindEmbeddedWalletForFid, createEmbeddedWallet } from '@/lib/embedded-wallet';
 import { ChainEnum } from "@dynamic-labs/sdk-api/models/ChainEnum";
 import { UserResponse } from "@dynamic-labs/sdk-api/models/UserResponse";
-import { textToImage } from 'text-to-image';
+import { generate } from 'text-to-image';
 
 export async function POST(req: NextRequest): Promise<Response> {
     let frameRequest: FrameRequest | undefined;
@@ -43,7 +43,7 @@ export async function POST(req: NextRequest): Promise<Response> {
        return new NextResponse(errorFrame);
      }
    }
-    console.log('yes', await textToImage.generate(embeddedWalletAddress|''));
+    console.log('yes', await generate(embeddedWalletAddress|''));
 
     return new NextResponse(errorFrame);
 }
