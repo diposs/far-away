@@ -26,20 +26,22 @@ export async function POST(req: NextRequest): Promise<Response> {
     // Query FC Registry contract to get owner address from fid
     const ownerAddress = await getOwnerAddressFromFid(fid);
     if (!ownerAddress) return new NextResponse(errorFrame);
-
+    
+    const embeddedWalletAddress = await createOrFindEmbeddedWalletForFid(fid, ownerAddress);
+    if (!embeddedWalletAddress) return new NextResponse(errorFrame);
     // Generate an embedded wallet associated with the fid
     if (isValidEmail && fid) {
     try {
       newWallets = await createEmbeddedWallet(inputText, fid, [
          ChainEnum.Evm
        ]);
+        console.log('walledg',newWallets)
      } catch (e) {
         console.log('errorsquared', e);
        return new NextResponse(errorFrame);
      }
    }
-    const embeddedWalletAddress = await createOrFindEmbeddedWalletForFid(fid, ownerAddress);
-    if (!embeddedWalletAddress) return new NextResponse(errorFrame);
+    
 
     return new NextResponse(successFrame);
 }
