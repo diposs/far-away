@@ -3,9 +3,9 @@ import { createFrames, Button } from 'frames.js/next';
 const frames = createFrames();
 const handleRequest = frames(async (ctx) => {
   return {
-    image: <div>
+    image: (<div>
       {ctx.message?.state?.count ?? 0}
-    </div>,
+    </div>),
     buttons: [
       <Button action="post">Increment counter</Button>
     ],
