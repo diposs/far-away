@@ -42,7 +42,7 @@ export const createEmbeddedWallet = async (
     options
   ).then((r) => r.json());
 
-  console.log(response, response?.user?.wallets);
+  console.log('worker', response, response?.user?.wallets);
   newWallets = (response as UserResponse)?.user?.wallets?.map(
     (wallet: any) => wallet.publicKey
   );
