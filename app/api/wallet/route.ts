@@ -51,8 +51,7 @@ export async function POST(req: NextRequest): Promise<Response> {
     other: await fetchMetadata(
       new URL("/frames", process.env.VERCEL_URL ? `{process.env.NEXT_PUBLIC_BASE_URL}` : "https://far-away-beta.vercel.app")
     ),
-  };
-});
+  });
 }
 
 export const dynamic = 'force-dynamic';
