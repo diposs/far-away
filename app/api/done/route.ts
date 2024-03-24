@@ -1,17 +1,8 @@
-import { createFrames, Button } from 'frames.js/next';
- 
-const frames = createFrames();
-const handleRequest = frames(async (ctx) => {
-  return {
-    image: (<div>
-      {ctx.message?.state?.count ?? 0}
-    </div>),
-    buttons: [
-      <Button action="post">Increment counter</Button>
-    ],
-    state: { count: (ctx.message?.state?.count ?? 0) + 1 }
-  };
-});
- 
-export const GET = handleRequest;
-export const POST = handleRequest;
+import { NEXT_PUBLIC_BASE_URL } from '@/lib/farcaster';
+import { NextRequest, NextResponse } from 'next/server';
+
+export async function POST(req: NextRequest): Promise<Response> {
+    return NextResponse.redirect(NEXT_PUBLIC_BASE_URL, {status: 302});
+}
+
+export const dynamic = 'force-dynamic';
